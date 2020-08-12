@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -8,10 +8,20 @@ import giveClassesIcon from '../../assets/images/icons/give-classes.png';
 import heartIcon from '../../assets/images/icons/heart.png';
 
 import styles from './landing.styles';
+import api from '../../services/api';
 
 function Landing() {
-
   const { navigate } = useNavigation();
+
+  const [totalConnections, setTotalConnections] = useState(0);
+
+  useEffect(() => {
+    api.get('connections').then(response => {
+      const { total } = response.data;
+
+      setTotalConnections(total);
+    })
+  }, []);
 
   function handleNavigateToGiveClassesPage() {
     navigate('GiveClasses');
@@ -31,17 +41,17 @@ function Landing() {
       </Text>
 
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={[styles.button, styles.buttonPrimary]}
-          onPress={handleNavigateToStudyPages}  
+          onPress={handleNavigateToStudyPages}
         >
           <Image source={studyIcon} />
 
           <Text style={styles.buttonText}>Estudar</Text>
-        </TouchableOpacity> 
+        </TouchableOpacity>
 
-        <TouchableOpacity 
-          onPress={handleNavigateToGiveClassesPage} 
+        <TouchableOpacity
+          onPress={handleNavigateToGiveClassesPage}
           style={[styles.button, styles.buttonSecondary]}
         >
           <Image source={giveClassesIcon} />
@@ -51,7 +61,7 @@ function Landing() {
       </View>
 
       <Text style={styles.totalConnections}>
-        Total de 285 conexões já realizadas {' '}
+        Total de {totalConnections} conexões já realizadas {' '}
         <Image source={heartIcon} />
       </Text>
     </View>
