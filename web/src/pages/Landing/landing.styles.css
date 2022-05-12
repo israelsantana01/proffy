@@ -1,4 +1,125 @@
-#page-landing {
+@import "../../styles/global.css";
+
+.page-content {
+  width: 100vw;
+  height: 100vh;
+  color: var(--color-text-in-primary);
+  background: var(--color-primary);
+  padding: 0.8em;
+  
+  display: grid;
+  grid-template-rows: 100px 1fr;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+    "logo"
+    "hero"
+    "buttons"
+    "footer"  
+  ;
+}
+
+.page-content .logo {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  grid-area: logo;
+}
+
+.page-content .logo .img-container {
+  width: 100%;
+}
+
+.page-content .logo .img-container img {
+  width: 80px;
+  max-width: 80px;
+}
+
+.page-content .logo h2 {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.page-content .hero {
+  margin-top: 5rem;
+  grid-area: hero;
+  width: 100%;
+}
+
+.page-content .buttons {
+  grid-area: buttons;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+}
+
+.page-content .buttons a {
+  width: 100%;
+  height: 40px;
+  border-radius: 0.8rem;
+  margin-bottom: 16px;
+  font: 700 1.4rem Archivo;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+  color: var(--color-button-text);
+
+  transition: background-color 0.2s;
+}
+
+.page-content .buttons a.study {
+  background: var(--color-primary-lighter);
+}
+
+.page-content .buttons a.study:hover {
+  background: var(--color-primary-light);
+}
+
+.page-content .buttons a.give-classes {
+  background: var(--color-secundary);
+}
+
+.page-content .buttons a.give-classes:hover {
+  background: var(--color-secundary-dark);
+}
+
+.page-content .buttons a .img-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 45%;
+  padding: 6px;
+}
+
+.page-content .buttons a .img-container img {
+  width: 18px;
+}
+
+.page-content .buttons a span {
+  width: 55%;
+}
+
+.total-connections {
+  grid-area: footer;
+  font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-connections img {
+  width: 1.4rem;
+  margin-left: 10px;
+}
+/* #page-landing {
   width: 100vw;
   height: 100vh;
 
@@ -76,17 +197,9 @@
   background: var(--color-secundary-dark);
 }
 
-.total-connections {
-  font-size: 1.4rem;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.total-connections img {
-  margin-left: 0.8rem;
-}
+
 
 @media (min-width: 1100px) {
   #page-landing-content {
@@ -139,4 +252,4 @@
     grid-area: total;
     justify-self: end;
   }
-}
+} */

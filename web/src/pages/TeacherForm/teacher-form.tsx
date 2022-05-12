@@ -6,7 +6,7 @@ import PageHeader from '../../components/PageHeader/page-header';
 import Textarea from '../../components/Textarea/textarea';
 import Select from '../../components/Select/select';
 
-import warningIcon from '../../assets/images/icons/warning.svg';
+import warningIcon from '../../assets/icons/warning.svg';
 
 import api from '../../services/api';
 
